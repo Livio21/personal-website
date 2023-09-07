@@ -9,7 +9,7 @@ function NavBar() {
       <div
         className={
           isOpen
-            ? " bg-white shadow-lg text-right pt-10 pr-10 h-screen rounded-tr-3xl mt-3 relative duration-100"
+            ? " bg-white shadow-lg text-right pt-10 pr-10 h-screen rounded-tr-3xl  relative duration-100 top-3"
             : "h-screen p-3 rounded-tr-3xl relative duration-100"
         }
       >
