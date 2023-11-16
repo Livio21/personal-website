@@ -1,12 +1,26 @@
 import "./App.css";
-import AnimatedRoutes from "./AnimatedRoutes";
-
+import HomePage from "./Home/HomePage";
+import AboutPage from "./About/AboutPage";
+import ContactPage from "./Contact/ContactPage";
+import PortofolioPage from "./Works/PortofolioPage";
+import NavBar from "./Components/NavBar";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 function App() {
+  const location = useLocation();
   return (
     <>
-      <div className="App  dark:bg-black w-full h-full  overflow-hidden">
-        <AnimatedRoutes />
-      </div>
+      <AnimatePresence initial={false}>
+        <div className="flex bg-blue-900" id="canvas">
+          <NavBar />
+          <Routes className="" location={location} key={location.pathname}>
+            <Route index element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/works" element={<PortofolioPage />} />
+          </Routes>
+        </div>
+      </AnimatePresence>
     </>
   );
 }
