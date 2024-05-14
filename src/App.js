@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <AnimatePresence initial={false}>
-        <div className="flex bg-blue-900" id="canvas">
+        <div className="flex bg-black" id="canvas">
           <NavBar />
           <Routes className="" location={location} key={location.pathname}>
             <Route index element={<HomePage />} />
