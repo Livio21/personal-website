@@ -32,12 +32,12 @@ function HomePage() {
         </h2>
       </header>
       <div className="flex flex-col gap-4 mt-10 p-5">
-        <h1 className="dark:text-white text-3xl font-semibold">Blabla bla?</h1>
+        <h1 className="dark:text-white text-3xl font-semibold">Placeholder text</h1>
         <Link
           to="/contact"
           className=" font-bold duration-100 bg-white w-fit p-3 rounded-2xl hover:px-5 hover:bg-gray-100 active:scale-95 active:bg-gray-100 "
         >
-          Bla bla!
+        Contact!
         </Link>
       </div>
     </motion.div>
