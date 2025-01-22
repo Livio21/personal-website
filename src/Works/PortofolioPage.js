@@ -61,9 +61,11 @@ function PortofolioPage() {
         Works.
       </h1>
       <div className="bg-white/20 p-10 rounded-3xl w-full flex flex-col gap-5 relative">
-        <div className="flex flex-col gap-5 w-full h-full overflow-hidden  relative ">
+      <div className="w-full relative ">
+        <div className="flex flex-col gap-5 w-full h-full overflow-hidden relative ">
           {projects.map((project, index) => (
             <motion.div
+            style={{ position: 'relative' }}
               key={index}
               className="h-full relative flex flex-col  group  hover:cursor-pointer  hover:scale-105 overflow-hidden  transition-smooth-magnetic-linear hover:bg-gray-500/10 "
               transition={
@@ -76,8 +78,8 @@ function PortofolioPage() {
               animate={{ opacity: 1, y: 0 }}
                layoutId={selectedCard}
             >
-              <div className="absolute inset-x-0  z-10  group-hover:bg-white/50  group-hover:scale-105 group-hover:transition-smooth-magnetic-linear ">
-                <div className="flex flex-col gap-20   w-full  ">
+             <div className="relative  z-10  group-hover:bg-white/50  group-hover:scale-105 group-hover:transition-smooth-magnetic-linear ">
+                <div className="flex flex-col gap-1   w-full  ">
                   <div className=" w-full flex flex-col gap-2">
                     <h2 className="dark:text-white text-xl font-bold  group-hover:bg-gray-500/10  ">{project.title} </h2>
                     <div className="dark:text-white text-sm  font-bold">{project.description}</div>
@@ -85,25 +87,23 @@ function PortofolioPage() {
                 </div>
                 <div className="flex gap-1  p-2 ">
                   <div className="  group-hover:bg-white/10  w-full  ">
+                  <div className="dark:text-white  flex gap-2  p-2  ">
+                    <a href={project.link} className="transition-smooth-magnetic-linear">
+                      <button className="bg-white/30 p-2 rounded-xl  " >
+                        <svg className="  w-6 h-6   ">
+                          <path className="  text-gray-700  group-hover:scale-105  group-hover:transition-smooth-magnetic-linear  " />
+                        </svg>
+                      </button>
+                      <div className=" group-hover:bg-gray-500/10 transition-smooth-magnetic-linear   bg-white/20  p-2    rounded-xl  ">
+                        <div className="  dark:text-white   text-sm  w-full   ">
+                          <span className="  group-hover:bg-gray-500/10  ">
+                            {project.title}
+                          </span>
+                        </div>
+                      </div>
+                    </a>
                   </div>
                 </div>
-                <div className="dark:text-white  flex gap-2  p-2  ">
-                  <a href={project.link} className="transition-smooth-magnetic-linear">
-                    <button className="bg-white/30 p-2 rounded-xl  " >
-                      <svg className="  w-6 h-6   ">
-                        <path className="  text-gray-700  group-hover:scale-105  group-hover:transition-smooth-magnetic-linear  " />
-                      </svg>
-                    </button>
-                    <div className=" group-hover:bg-gray-500/10 transition-smooth-magnetic-linear   bg-white/20  p-2    rounded-xl  ">
-                      <div className="  dark:text-white   text-sm  w-full   ">
-                         <span className="  group-hover:bg-gray-500/10  ">
-                          {project.title}
-                        </span>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-              </div>
             </motion.div>
           ))}
         </div>
