@@ -13,7 +13,7 @@ function App() {
       <AnimatePresence initial={false}>
         <div className="flex bg-black" id="canvas">
           <NavBar />
-          <Routes className="" location={location} key={location.pathname}>
+          <Routes location={location} key={location.pathname}>
             <Route index element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
