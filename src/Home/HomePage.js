@@ -1,7 +1,9 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 
+import * as THREE from 'three';
 function HomePage() {
   const [clickCount, setClickCount] = useState(0);
   const [randomEmoji, setRandomEmoji] = useState("hmm");
@@ -42,6 +44,61 @@ function HomePage() {
     return windowSize;
   }
 
+  // Donut Component
+  function Donut() {
+    const geometry = new THREE.TorusGeometry(1, 0.4, 100, 100);
+    const material = new THREE.MeshStandardMaterial({ color: 0xf9a826 });
+    const donut = new THREE.Mesh(geometry, material);
+
+    useFrame((state) => {
+      const timer = state.clock.getElapsedTime();
+      donut.rotation.x = timer / 2;
+      donut.rotation.y = timer / 2;
+    });
+
+    return (
+      <primitive object={donut} />
+    );
+  }
+
+  // Light Component
+  function Light() {
+    const light = new THREE.PointLight(0xffffff, 1);
+    light.position.set(0, 0, 5);
+
+    return (
+      <primitive object={light} />
+    );
+  }
+  // Camera Component
+  function Camera() {
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.set(0, 0, 5);
+
+    useFrame((state) => {
+      camera.lookAt(0, 0, 0);
+    });
+
+    return (
+      <primitive object={camera} />
+    );
+  }
+
+  // Canvas Component
+  function CanvasComponent() {
+    return (
+      <Canvas
+        style={{ width: '100%', height: '100%' }}
+      >
+        <Light />
+        <Camera />
+        <Donut />
+        <ambientLight color="#fff" />
+      </Canvas>
+    );
+  }
+
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -52,7 +109,7 @@ function HomePage() {
       }}
       className="p-10 relative"
     >
-      <header className="flex gap-5">
+      <header className="flex gap-5 justify-between">
         <motion.div
           animate={{
             scale: isHovered ? 1.1 : 1,
@@ -121,6 +178,14 @@ function HomePage() {
         
       </header>
       <div className="flex flex-col gap-4 mt-10 p-5">
+      <div className="absolute right-0 top-0 h-full w-1/2">
+      <CanvasComponent/>
+      
+      </div>
+
+
+
+
         <h1 className="dark:text-white text-3xl font-semibold">Placeholder text</h1>
         <Link
           to="/contact"
@@ -135,8 +200,13 @@ function HomePage() {
       </div>
 
       
-    </motion.div>
+    </motion.div> 
   );
 }
 
 export default HomePage;
+
+
+
+
+
