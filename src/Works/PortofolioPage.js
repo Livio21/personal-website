@@ -65,53 +65,36 @@ function PortofolioPage() {
           <div className="flex flex-col gap-5 w-full h-full overflow-hidden relative ">
             {projects.map((project, index) => (
               <motion.div
-                style={{ position: 'relative' }}
                 key={index}
-                className="h-full relative flex flex-col  group  hover:cursor-pointer  hover:scale-105 overflow-hidden  transition-smooth-magnetic-linear hover:bg-gray-500/10 "
-                transition={
-                  index === selectedCard ? { duration: 0.7, ease: "easeIn" } : ""
-                }
-                onClick={index === selectedCard ? null : () => handleCardClick(index)}
-                initial={{ opacity: 0.5 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 1.05 }}
-                animate={{ opacity: 1, y: 0 }}
-                layoutId={selectedCard}
+                className="border-2 dark:border-white/20 bg-white/20 dark:text-white text-black dark:p-2  p-4 rounded-xl hover:bg-white/30 relative  transition-all duration-500"
+                transition={{
+                  transition: {
+                    duration: 0.1,
+                  },
+                  layout: true,
+                }}
+                layout
+                style={{ zIndex: projects.length - index }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
               >
-                <div className="relative  z-10  group-hover:bg-white/50  group-hover:scale-105 group-hover:transition-smooth-magnetic-linear ">
-                  <div className="flex flex-col gap-1   w-full  ">
-                    <div className=" w-full flex flex-col gap-2">
-                      <h2 className="dark:text-white text-xl font-bold  group-hover:bg-gray-500/10  ">{project.title} </h2>
-                      <div className="dark:text-white text-sm  font-bold">{project.description}</div>
-                    </div>
-                  </div>
-                  <div className="flex gap-1  p-2 ">
-                    <div className="  group-hover:bg-white/10  w-full  ">
-                      <div className="dark:text-white  flex gap-2  p-2  ">
-                        <a href={project.link} className="transition-smooth-magnetic-linear">
-                          <button className="bg-white/30 p-2 rounded-xl  " >
-                            <svg className="  w-6 h-6   ">
-                              <path className="  text-gray-700  group-hover:scale-105  group-hover:transition-smooth-magnetic-linear  " />
-                            </svg>
-                          </button>
-                          <div className=" group-hover:bg-gray-500/10 transition-smooth-magnetic-linear   bg-white/20  p-2    rounded-xl  ">
-                            <div className="  dark:text-white   text-sm  w-full   ">
-                              <span className="  group-hover:bg-gray-500/10  ">
-                                {project.title}
-                              </span>
-                            </div>
-                          </div>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
+                <p className="text-2xl font-bold">{project.title}</p>
+                <p className="text-sm mt-2">{project.description}</p>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {project.tech.map((techItem, index) => (
+                    <span
+                      key={index}
+                      className="bg-black/30 dark:bg-white/30 text-white px-2 py-1 rounded-lg text-xs"
+                    >
+                      {techItem}
+                    </span>
+                  ))}
                 </div>
-
               </motion.div>
             ))}
           </div>
         </div>
-        </div>
+      </div>
     </motion.div>
   );
 }
