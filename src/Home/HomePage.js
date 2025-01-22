@@ -1,45 +1,140 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function HomePage() {
+  const [clickCount, setClickCount] = useState(0);
+  const [randomEmoji, setRandomEmoji] = useState("hmm");
+  const [isHovered, setIsHovered] = useState(false);
+
+  const generateRandomEmoji = () => {
+    const emojis = ["😀", "😂", "🤣", "😃", "😄", "😅", "😆", "😉", "😊", "😋", "😎", "😍", "🤩", "🥳", "🥰", "😘", "😗", "😙", "😚", "🙂", "🤗", "🤔", "🤨", "🤫", "🤭", "🤐", "🙄", "😯", "🤥", "🤤", "😴", "😵", "🤯", "🤠", "😈", "💩", "🤡", "👹", "👺", "👻", "👽", "🤖", "👾", "😹", "😻", "😼", "🙀", "😿", "😾", "🙈", "🙉", "🙊"];
+    const randomIndex = Math.floor(Math.random() * emojis.length);
+    return emojis[randomIndex];
+  };
+
+  const handleHelloClick = () => {
+    setClickCount(clickCount + 1);
+  };
+  const { width, height } = useWindowSize();
+
+  function useWindowSize() {
+    const [windowSize, setWindowSize] = useState({
+      width: window.innerWidth,
+      height: window.innerHeight,
+    });
+  
+    useEffect(() => {
+      function handleResize() {
+        setWindowSize({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      }
+  
+      window.addEventListener('resize', handleResize);
+  
+      handleResize();
+  
+      return () => window.removeEventListener('resize', handleResize);
+    }, []);
+  
+    return windowSize;
+  }
+
   return (
     <motion.div
-      initial={{ opacity: 0}}
+      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, ease: "easeIn" }}
       exit={{
         opacity: 1,
       }}
-      className="p-10"
+      className="p-10 relative"
     >
       <header className="flex gap-5">
         <motion.div
-          drag
-          dragConstraints={{ top: -0, left: -0, right: 0, bottom: 0 }}
-          dragElastic={0.5}
-          dragMomentum={false}
-          dragTransition={{ bounceStiffness: 1000, bounceDamping: 25 }}
-          className="bg-white/10 p-5 rounded-3xl w-fit"
-          title="Drag me!"
+          animate={{
+            scale: isHovered ? 1.1 : 1,
+            rotate: isHovered ? 5 : 0,
+            transition: {
+              duration: 0.3,
+              ease: "easeInOut",
+              type: "spring",
+              stiffness: 200,
+            },
+          }}
+          className="bg-white/10 p-5 rounded-3xl w-fit hover:cursor-pointer"
+          title="Click me! It's hidden something!"
+          onClick={() => {
+            handleHelloClick();
+            if (clickCount >= 5 && randomEmoji !== "") {
+              setRandomEmoji("");
+            }
+            setIsHovered(!isHovered);
+            if (clickCount >= 5) {
+              const newEmoji = generateRandomEmoji();
+              setRandomEmoji(newEmoji);
+            }
+          }}
         >
-          <h1 className="dark:text-white text-6xl font-bold ">Hello.</h1>
+          {clickCount < 5 ? (
+            <h1 className="dark:text-white text-6xl font-bold animate-bounce">Hello.</h1>
+          ) : (
+            <motion.div
+              drag
+              dragConstraints={{ top: -height/2, left: -width/2, right: width/2, bottom: height/2 }}
+              dragElastic={0.3}
+              dragMomentum={true}
+              dragTransition={{ bounceStiffness: 500, bounceDamping: 25 }}
+              className="dark:text-white text-6xl font-bold"
+            >
+              {randomEmoji}
+            </motion.div>
+          )}
+
+          {/* Empty <h1> to be removed if not needed */}
+          {clickCount >= 5 && (
+            <h1 className="dark:text-white text-6xl font-bold"></h1>
+          )}
         </motion.div>
         <h2 className="dark:text-white text-3xl font-semibold ">
           I'm{" "}
           <Link to="/about" className="hover:text-4xl font-bold duration-100">
             Livio
           </Link>
+          <motion.div
+            animate={{
+              scale: isHovered ? 1.1 : 1,
+              transition: {
+                duration: 0.3,
+                ease: "easeInOut",
+                type: "spring",
+              },
+            }}
+            className="dark:text-white dark:hover:text-4xl text-3xl hover:text-4xl font-bold duration-100 cursor-pointer "
+            onClick={() => setIsHovered(!isHovered)}
+          >
+            👋
+          </motion.div>
         </h2>
+        
       </header>
       <div className="flex flex-col gap-4 mt-10 p-5">
         <h1 className="dark:text-white text-3xl font-semibold">Placeholder text</h1>
         <Link
           to="/contact"
-          className=" font-bold duration-100 bg-white w-fit p-3 rounded-2xl hover:px-5 hover:bg-gray-100 active:scale-95 active:bg-gray-100 "
+          className=" font-bold duration-100 bg-white w-fit p-3 rounded-2xl hover:px-5 hover:bg-gray-100 active:scale-95 active:bg-gray-100"
+          
+          
         >
-        Contact!
+          Contact!
         </Link>
+        
+        
       </div>
+
+      
     </motion.div>
   );
 }
