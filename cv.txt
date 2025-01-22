@@ -1,0 +1,36 @@
+Livio Macaj
+Tirana, Albania · iamliviomacaj@gmail.com · +355 68 511 2709 · https://www.linkedin.com/in/livio-macaj/
+Education
+Canadian Institute of Technology Tirana, Albania
+Bachelor Software Engineering Oct 2019 - Jul 2022
+Canadian Institute of Technology Tirana, Albania
+Master of Science Software Engineering Oct 2022 - Jul 2024
+Experience
+AKKSHI (NASRI) Tirana, Albania
+Web Developer Mar 2022 - Aug 2022
+• Helped design responsive component for the companies website.
+• Updated the frontend with a different layout.
+Ministry of Justice of Albania Tirana, Albania
+Information Technology Intern Apr 2024 - Sep 2024
+• IT management of government PCs.
+• Repairing computers and other office devices.
+• Troubleshooting software and hardware problems.
+• Maintaining and updating software of government PCs.
+Skills
+Programming Languages: Python, Javascript, HTML/CSS, Kotlin, SQL
+Frameworks: VueJS, ReactJS, NodeJS, ODOO
+Tools: GIT, Figma, Docker, Android Studio, Vercel, VSCode
+Projects
+Vue Covid App VueJS, Vuex, Tailwind CSS, ColorfulCMS, Vercel https://vue-covidapp.vercel.app/#/
+A web application based on VueJS, Colorful CMS and Tailwind CSS.
+ITSA System VueJS, Firebase, Vuex, Tailwind CSS, Vercel https://itsa-vue.web.app/#/login
+ITSA or Interactive Teaching and Assessment System is a Learning/Student Management System created on
+VueJS 3 & Firebase and Tailwind CSS for styling.
+Personal Website ReactJS, Tailwind CSS, Supabase https://livio-macaj.vercel.app/
+This is my personal website currently in development. It uses ReactJS and TailwindCSS plus in the future a
+backend to manage information possibly a personal blog.
+LMS on ODOO ODoo, PostgresSQL
+A Learning Management System developed on ODOO Framework.
+Albanian Content Safety Checker Javascript, BERT, Language Transformer, Python
+This chrome extension checks the content of a webpage for unsafe text in Albanian. It uses a model finetuned
+on a dataset of labeled data.
