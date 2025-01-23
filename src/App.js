@@ -11,9 +11,9 @@ function App() {
   return (
     <>
       <AnimatePresence initial={false}>
-        <div className="flex bg-black h-[100%]" id="canvas">
+        <div className="flex bg-black h-lvh" id="canvas">
           <NavBar />
-          <div className="md:p-10 p-3 h-dvh">
+          <div className="md:p-10 p-3 h-full">
           <Routes location={location} key={location.pathname}>
             <Route index element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
