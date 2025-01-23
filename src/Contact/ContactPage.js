@@ -40,17 +40,17 @@ function ContactPage() {
         </div>
         <form className="flex flex-col gap-5 bg-white/10 p-5 rounded-3xl text-lg font-semibold">
           <input
-            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-none focus:invert"
+            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-hidden focus:invert"
             type="text"
             placeholder="Name"
           />
           <input
-            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-none focus:invert"
+            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-hidden focus:invert"
             type="text"
             placeholder="Email"
           />
           <textarea
-            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-none focus:invert"
+            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-hidden focus:invert"
             type="text"
             placeholder="Message"
           />
