@@ -7,6 +7,7 @@ function NavBar() {
   
   
 addEventListener('mousedown',(e)=>{
+  /* eslint-disable-line no-restricted-globals */
   if  (isOpen){
     if(e.target.id != 'navbar'){
       toggle()
