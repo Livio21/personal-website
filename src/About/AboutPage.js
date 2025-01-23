@@ -8,7 +8,7 @@ function AboutPage() {
       exit={{
         opacity: 1,
       }}
-      className="p-10"
+      className=""
     >
       <div className="dark:text-white">
         <h1 className="dark:text-white text-6xl font-bold mb-5">About.</h1>
@@ -19,8 +19,8 @@ function AboutPage() {
               Software Engineer | Frontend Developer
             </h2>
           </header>
-          <section id="summary" className="bg-gray-100/30 p-5 rounded-3xl font-semibold basis-1/2">
-            <p>
+          <section id="summary" className="flex-initial bg-gray-100/30 p-5 rounded-3xl font-semibold lg:basis-1/2">
+            <p className="text-pretty">
               As a recent graduate in Software Engineering, I have a strong
               foundation in computer science principles and a passion for
               frontend web development. I have completed an internship with
@@ -33,17 +33,8 @@ function AboutPage() {
               collaborative environments.
             </p>
           </section>
-          <section id="skills" className="bg-gray-100/30 p-5 rounded-3xl">
-            <h3 className="text-4xl font-semibold text-orange-500">🛠️ Top Skills</h3>
-            <ul className="list-disc ml-4">
-              <li>React.js</li>
-              <li>HTML5</li>
-              <li>TailwindCSS</li>
-              <li>CSS3</li>
-              <li>JavaScript ES6</li>
-            </ul>
-          </section>
-          <section id="experience" className="bg-gray-100/30 p-5 rounded-3xl">
+          
+          <section id="experience" className="bg-gray-100/30 p-5 rounded-3xl lg:basis-1/2">
             <h3 className="text-4xl font-semibold text-orange-500">💼 Experience</h3>
             <article className="mb-6">
               <h4 className="text-lg font-semibold text-orange-500">
@@ -75,7 +66,7 @@ function AboutPage() {
             </article>
           </section>
 
-          <section id="education" className="bg-gray-100/30 p-5 rounded-3xl">
+          <section id="education" className="bg-gray-100/30 p-5 rounded-3xl ">
             <h3 className="text-4xl font-semibold text-orange-500">🎓 Education</h3>
             <article className="mb-6">
               <h4 className="text-lg font-semibold mb-1 text-orange-500">
@@ -90,7 +81,17 @@ function AboutPage() {
               <p>Master of Science - MS, Computer Software Engineering</p>
             </article>
           </section>
-          <section id="projects" className="bg-gray-100/30 p-5 rounded-3xl">
+          <section id="skills" className="bg-gray-100/30 p-5 rounded-3xl">
+            <h3 className="text-4xl font-semibold text-orange-500">🛠️ Top Skills</h3>
+            <ul className="list-disc ml-4">
+              <li>React.js</li>
+              <li>HTML5</li>
+              <li>TailwindCSS</li>
+              <li>CSS3</li>
+              <li>JavaScript ES6</li>
+            </ul>
+          </section>
+          <section id="projects" className="bg-gray-100/30 p-5 rounded-3xl lg:basis-1/2">
             <h3 className="text-4xl font-semibold text-orange-500">🚀 Projects</h3>
             <article>
               <h4 className="text-lg font-semibold mb-1 text-orange-500">

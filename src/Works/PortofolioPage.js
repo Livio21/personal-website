@@ -55,7 +55,7 @@ function PortofolioPage() {
       exit={{
         opacity: 1,
       }}
-      className="p-10 flex flex-col gap-4 w-full relative"
+      className="flex flex-col gap-4 w-full relative"
     >
       <h1 className="dark:text-white text-6xl font-bold ">
         Works.
