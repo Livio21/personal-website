@@ -45,7 +45,7 @@ function NavBar() {
         <CustomLink to="/works">Works</CustomLink>
       </nav>
     </div>
-  );
+     );
 }
 
 function CustomLink({ to, children }) {

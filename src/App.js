@@ -1,8 +1,8 @@
 import "./App.css";
-import HomePage from "./Home/HomePage";
-import AboutPage from "./About/AboutPage";
-import ContactPage from "./Contact/ContactPage";
-import PortofolioPage from "./Works/PortofolioPage";
+import HomePage from "./Pages/HomePage";
+import AboutPage from "./Pages/AboutPage";
+import ContactPage from "./Pages/ContactPage";
+import PortofolioPage from "./Pages/PortofolioPage";
 import NavBar from "./Components/NavBar";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
