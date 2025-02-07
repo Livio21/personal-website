@@ -2,22 +2,14 @@ import { motion } from "framer-motion";
 
 function ContactPage() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, ease: "easeIn" }}
-      exit={{
-        opacity: 1,
-      }}
-      className="text-base h-full"
-    >
+    <>
       <h1 className="dark:text-white text-6xl font-bold mb-10">Contact.</h1>
-      <div className="flex sm:flex-row flex-col gap-10 w-full justify-center">
-        <div className="flex flex-col gap-3  bg-white/10 p-5 rounded-3xl">
-          <p className="dark:text-white text-xl font-semibold">
-            You can contact me at:
-          </p>
-          <p className="dark:text-white text-xl font-semibold underline underline-offset-8 hover:scale-105 duration-75 ">
+      <div className="grid grid-flow-col-dense gap-4 grid-cols-2">
+        <details className="text-white mb-8 rounded-xl transition-all duration-300 bg-white/10 p-4">
+          <summary className="text-xl font-semibold ">
+            You can contact me on:
+          </summary>
+          <p className="dark:text-white underline underline-offset-8 hover:scale-105 duration-75 ">
             <a
               href="mailto:livio.macaj@cit.edu.al"
               target="_blank"
@@ -27,7 +19,7 @@ function ContactPage() {
               Email
             </a>
           </p>
-          <p className="dark:text-white text-xl font-semibold underline underline-offset-8 hover:scale-105 duration-75 ">
+          <p className="dark:text-white  underline underline-offset-8 hover:scale-105 duration-75 ">
             <a
               href="https://www.linkedin.com/in/livio-macaj/"
               target="_blank"
@@ -37,20 +29,21 @@ function ContactPage() {
               LinkedIn
             </a>
           </p>
-        </div>
-        <form className="flex flex-col gap-5 bg-white/10 p-5 rounded-3xl text-lg font-semibold">
+        </details>
+        <div className="bg-white/10 h-[250px] w-[250px]">a</div>
+        <form className="row-span-2 flex flex-col gap-5 bg-white/10 p-5 rounded-3xl text- font-semibold max-h-fit">
           <input
-            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-none focus:invert"
+            className="bg-white/10 py-2 px-3 rounded-xl w-fit focus:outline-none focus:invert"
             type="text"
             placeholder="Name"
           />
           <input
-            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-none focus:invert"
+            className="bg-white/10 py-2 px-3 rounded-xl w-fit focus:outline-none focus:invert"
             type="text"
             placeholder="Email"
           />
           <textarea
-            className="bg-white/10 py-2 px-5 rounded-3xl w-fit focus:outline-none focus:invert"
+            className="bg-white/10 py-2 px-3 rounded-xl w-fit focus:outline-none focus:invert"
             type="text"
             placeholder="Message"
           />
@@ -59,7 +52,7 @@ function ContactPage() {
           </button>
         </form>
       </div>
-    </motion.div>
+    </>
   );
 }
 

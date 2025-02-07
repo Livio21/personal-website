@@ -48,15 +48,7 @@ function PortofolioPage() {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3, ease: "easeIn" }}
-      exit={{
-        opacity: 1,
-      }}
-      className="flex flex-col gap-4 w-full relative"
-    >
+    <>
       <h1 className="dark:text-white text-6xl font-bold ">
         Works.
       </h1>
@@ -95,7 +87,7 @@ function PortofolioPage() {
           </div>
         </div>
       </div>
-    </motion.div>
+    </>
   );
 }
 

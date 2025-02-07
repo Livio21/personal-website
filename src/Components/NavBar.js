@@ -16,36 +16,34 @@ function NavBar() {
   return (
     <div
       id="navbar"
-      className={
-        isOpen
-          ? " bg-white shadow-lg text-right pt-10 pr-10  rounded-tr-3xl  sticky duration-300 top-3 h-dvh"
-          : "p-3 duration-300"
-      }
+      className={isOpen ? "shadow-lg duration-300 pt-4 h-dvh" : "p-3 duration-300"}
     >
+      <div
+        className={isOpen ? " bg-white/10  pt-10 h-full rounded-tr-xl " : "w-0"}
+      >
+        <nav
+          id="navbar-nav"
+          onClick={toggle}
+          className={isOpen ? "sticky top-16 max-h-fit flex flex-col divide-solid divide-white/10 divide-y mt-4 " :"hidden" }
+        >
+          <CustomLink to="/">Home</CustomLink>
+          <CustomLink to="/about">About</CustomLink>
+          <CustomLink to="/contact">Contact</CustomLink>
+          <CustomLink to="/works">Works</CustomLink>
+        </nav>
+      </div>
       <button
         className={
-          isOpen
-            ? "absolute top-3 p-1 right-3 rounded-full bg-gray-100 hover:invert hover:scale-110 active:bg-gray-100 material-symbols-outlined duration-300"
-            : "sticky top-3 rounded-full overflow-hidden text-5xl bg-white hover:invert active:bg-gray-100 material-symbols-outlined rotate-180 duration-300"
+          isOpen 
+            ? "hidden"
+            : "sticky top-3 rounded-full text-5xl bg-white overflow-hidden  hover:invert active:bg-zinc-100 material-symbols-outlined duration-300"
         }
         onClick={toggle}
       >
-        arrow_left
+        {isOpen ? "arrow_left" : "arrow_right"}
       </button>
-      <nav
-        id="navbar"
-        onClick={toggle}
-        className={
-          isOpen ? "sticky top-3 flex flex-col gap-5 mt-4" : " w-0 hidden "
-        }
-      >
-        <CustomLink to="/">Home</CustomLink>
-        <CustomLink to="/about">About</CustomLink>
-        <CustomLink to="/contact">Contact</CustomLink>
-        <CustomLink to="/works">Works</CustomLink>
-      </nav>
     </div>
-     );
+  );
 }
 
 function CustomLink({ to, children }) {
@@ -53,8 +51,8 @@ function CustomLink({ to, children }) {
     <Link
       id="navbar"
       to={to}
-      className="bg-gray-200 py-3 px-7 rounded-r-3xl text-center text-slate-900 
-      font-semibold text-lg hover:bg-gray-100 hover:scale-110 duration-75 active:scale-100 active:brightness-100"
+      className="py-3 px-10 text-center text-white 
+      font-semibold text-lg hover:bg-white/20 duration-75 "
     >
       {children}
     </Link>
