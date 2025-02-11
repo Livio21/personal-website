@@ -45,9 +45,8 @@ function App() {
 
   return (
     <>
-      <div className="flex bg-black w-dvw h-dvh" >
         <NavBar />
-        <div className="p-8" id="canvas" ref={constraintsRef}>
+        <div className="py-8" id="canvas" ref={constraintsRef}>
           <AnimatePresence initial={false} mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route
@@ -85,7 +84,6 @@ function App() {
             </Routes>
           </AnimatePresence>
         </div>
-      </div>
       <Footer />
     </>
   );

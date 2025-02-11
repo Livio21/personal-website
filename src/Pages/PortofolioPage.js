@@ -71,8 +71,8 @@ function PortofolioPage() {
   
   const cardWidth = 500;
   const cardHeight = 300;
-  const baseLeft = containerDimensions.width / 2 - cardWidth / 2;
-  const baseTop = containerDimensions.height / 2 - cardHeight / 2;
+  const baseLeft = containerDimensions.width / 2 - cardWidth ;
+  const baseTop = containerDimensions.height / 2 - cardHeight ;
   const offsetX = 20;
   const offsetY = 10;
 
@@ -81,7 +81,7 @@ function PortofolioPage() {
       <h1 className="dark:text-white text-6xl font-bold">Works.</h1>
       <div
         ref={containerRef}
-        className="w-[80vw] h-[70vh] overflow-hidden relative mx-auto mt-8"
+        className="h-full w-screen overflow-hidden relative mx-auto mt-8"
       >
         {projects.map((project, index) => {
           const isSelected = selectedCard === index;
