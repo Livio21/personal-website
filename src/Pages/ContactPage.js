@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 
 function ContactPage() {
   return (
-    <>
-      <h1 className="dark:text-white text-6xl font-bold mb-10">Contact.</h1>
-      <div className="grid grid-flow-col-dense gap-4 grid-cols-2">
-        <details className="text-white mb-8 rounded-xl transition-all duration-300 bg-white/10 p-4">
+    <div className="h-full">
+      <h1 className="dark:text-white text-6xl font-bold mb-10 ">Contact.</h1>
+      <div className="grid grid-flow-row-dense sm:grid-flow-col-dense gap-4 grid-cols-2">
+        <details className="col-span-2 text-white mb-8 rounded-xl transition-all duration-300 bg-white/10 p-4 max-h-fit max-w-fit">
           <summary className="text-xl font-semibold ">
             You can contact me on:
           </summary>
@@ -30,29 +30,35 @@ function ContactPage() {
             </a>
           </p>
         </details>
-        <div className="bg-white/10 h-[250px] w-[250px]">a</div>
-        <form className="row-span-2 flex flex-col gap-5 bg-white/10 p-5 rounded-3xl text- font-semibold max-h-fit">
+        <div className="col-span-2 bg-white/10 h-[250px] w-[250px]">a</div>
+        <div className="col-span-2 sm:row-span-2 rounded-xl text- font-semibold divide-solid divide-y divide-white/20 p-4 flex flex-col border-solid border-white/20  border-2">
+          <div className="py-4">
           <input
-            className="bg-white/10 py-2 px-3 rounded-xl w-fit focus:outline-none focus:invert"
-            type="text"
-            placeholder="Name"
-          />
+              className="focus:outline-none p-2 rounded-t-xl bg-white/10 w-full"
+              type="text"
+              placeholder="Name"
+            />
+          </div>
+          <div className="py-4">
           <input
-            className="bg-white/10 py-2 px-3 rounded-xl w-fit focus:outline-none focus:invert"
-            type="text"
-            placeholder="Email"
-          />
+              className="focus:outline-none p-2 bg-white/10 w-full "
+              type="text"
+              placeholder="Email"
+            />
+          </div>
+          <div className="py-4">
           <textarea
-            className="bg-white/10 py-2 px-3 rounded-xl w-fit focus:outline-none focus:invert"
-            type="text"
-            placeholder="Message"
-          />
-          <button className=" font-bold duration-100 bg-white w-fit p-3 rounded-2xl hover:px-5 hover:bg-gray-100 active:scale-95 active:bg-gray-100 ">
+              className="focus:outline-none p-2 rounded-b-xl bg-white/10 w-full "
+              type="text"
+              placeholder="Message"
+            />
+          </div>
+          <button className=" font-bold duration-100 bg-white w-fit p-3 rounded-2xl hover:px-5 hover:bg-gray-100 active:scale-95 active:bg-gray-100 block ">
             Send
           </button>
-        </form>
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

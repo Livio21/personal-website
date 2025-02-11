@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 
 import * as THREE from "three";
-function HomePage() {
+function HomePage(constraintsRef) {
   const [clickCount, setClickCount] = useState(0);
   const [randomEmoji, setRandomEmoji] = useState("hmm");
   const [isHovered, setIsHovered] = useState(false);
@@ -71,118 +71,18 @@ function HomePage() {
   const handleHelloClick = () => {
     setClickCount(clickCount + 1);
   };
-  const constraintsRef = useRef(null);
-
-  function Shape({ count = 10 }) {
-    const sphereGeometry = useRef(new THREE.SphereGeometry(1, 32, 32));
-    const particleGeometry = useRef(new THREE.SphereGeometry(0.2, 32, 32));
-    const particleMaterial = useRef(
-      new THREE.MeshStandardMaterial({ color: "white" })
-    );// Adjust the material to add specular reflection
-    const centralMaterial = useRef(
-      new THREE.MeshStandardMaterial({ 
-        color: "white", 
-        // Increase the shininess
-        metalness: 0.0,
-        roughness: 0.0,
-        // Add specular highlights
-        specular: new THREE.Color("white"), 
-      })
-    ); //Create a point light inside the atom
-    const sphere = useRef(new THREE.Mesh(sphereGeometry.current, centralMaterial.current));
-    const particles = useRef(Array.from({ length: count }, () => null));
-    const centralLight = useRef(new THREE.PointLight(0xffffff, 1));
-    const centralSphere = sphere.current;
-    const particleMeshes = particles.current.map(
-      (particle, index) => new THREE.Mesh(particleGeometry.current, particleMaterial.current)
-    );
-
-    const time = useRef(0);
-    const clock = new THREE.Clock();
-    
-    
-    centralLight.current.position.set(0,0,0);
-    useFrame((state) => {
-      const timer = clock.getElapsedTime();
-      time.current = timer;
-      if(sphere.current)
-      {
-        centralSphere.rotation.y = timer * 0.5;
-        particleMeshes.forEach((particle, index) => {
-          const orbitRadius = 2; 
-          const angle = (timer * (index + 1)) ;
-          const x = orbitRadius * Math.cos(angle);
-          const z = orbitRadius * Math.sin(angle);
-          particle.position.set(x, 0, z);
-
-          particle.rotation.x = time.current * 2;
-          particle.rotation.y = time.current * 0.5;
-        });
-      }
-      centralLight.current.position.set(centralSphere.position.x,centralSphere.position.y,centralSphere.position.z);
-    });
-    
-    return (
-      <group>
-        <primitive object={centralSphere} />
-        {particleMeshes.map((particle, index) => (
-          <primitive key={index} object={particle} />
-        ))}
-         <primitive object={centralLight.current} />
-      </group>
-    );
-    
-  }
-
-  // Light Component
-  function Light() {
-    const light = new THREE.PointLight(0xffffff, 1);
-    light.position.set(5, 5, 5);
-    light.castShadow = true
-
-    return <primitive object={light} />;
-  }
-  // Camera Component
-  function Camera() {
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
-    camera.position.set(0, 0, 5);
-
-    useFrame((state) => {
-      camera.lookAt(0, 0, 0);
-    });
-
-    return <primitive object={camera} />;
-  }
-
-  // Canvas Component
-  function CanvasComponent() {
-    return (
-      <Canvas style={{ width: "100%", height: "100%" }}>
-        <Light />
-        <Camera />
-        <Shape />
-        <ambientLight color="#fff" intensity={0.5} />
-        
-      </Canvas>
-    );
-  }
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.3}}
+      transition={{ duration: 0.3 }}
       exit={{
         opacity: 1,
       }}
-      className="flex h-screen" ref={constraintsRef}
+      className="flex h-screen"
     >
-      <div className="flex-col" >
+      <div className="flex-col">
         <header className="flex gap-5 justify-between w-max h-max">
           <motion.div
             animate={{
@@ -210,9 +110,7 @@ function HomePage() {
             }}
           >
             {clickCount < 5 ? (
-              <h1 className="dark:text-white text-6xl font-bold animate-bounce">
-                Hello.
-              </h1>
+              <h1 className="dark:text-white text-6xl font-bold ">Hello.</h1>
             ) : (
               <motion.div
                 drag

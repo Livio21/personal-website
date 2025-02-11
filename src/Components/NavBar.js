@@ -16,10 +16,10 @@ function NavBar() {
   return (
     <div
       id="navbar"
-      className={isOpen ? "shadow-lg duration-300 pt-4 h-dvh" : "p-3 duration-300"}
+      className={isOpen ? "shadow-lg pt-4 h-dvh" : "p-3 "}
     >
       <div
-        className={isOpen ? " bg-white/10  pt-10 h-full rounded-tr-xl " : "w-0"}
+        className={isOpen ? " bg-white/10  pt-10 h-full rounded-tr-xl  " : "hidden  "}
       >
         <nav
           id="navbar-nav"
