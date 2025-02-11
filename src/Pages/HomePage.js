@@ -80,7 +80,7 @@ function HomePage(constraintsRef) {
       exit={{
         opacity: 1,
       }}
-      className="flex h-screen"
+      className="flex w-full and h-full"
     >
       <div className="flex-col">
         <header className="flex gap-5 justify-between w-max h-max">
