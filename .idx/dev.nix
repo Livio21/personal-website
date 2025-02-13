@@ -7,6 +7,11 @@
   idx.extensions = [
     "svelte.svelte-vscode"
     "vue.volar"    
+    "bradlc.vscode-tailwindcss"
+    "dsznajder.es7-react-js-snippets"
+    "ecmel.vscode-html-css"
+    "esbenp.prettier-vscode"
+    "mgmcdermott.vscode-language-babel"
   ];
   idx.previews = {
     previews = {
@@ -15,6 +20,7 @@
           "npm"
           "run"          
           "dev"
+          "preview"
         ];
         env = {
           PORT = "$PORT";
