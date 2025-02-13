@@ -81,7 +81,7 @@ function PortofolioPage() {
       <h1 className="dark:text-white text-6xl font-bold">Works.</h1>
       <div
         ref={containerRef}
-        className="h-full w-screen overflow-hidden relative mx-auto mt-8"
+        className="h-full w-screen overflow-hidden relative mx-auto mt-8 "
       >
         {projects.map((project, index) => {
           const isSelected = selectedCard === index;
