@@ -15,16 +15,24 @@ function NavBar() {
 
   return (
     <div
-      id="navbar"
-      className={isOpen ? "shadow-lg pt-4 h-dvh" : "p-3 "}
+      className={
+        isOpen
+          ? "h-full absolute pt-3"
+          : "sticky top-1/2 left-3 w-0 h-0"
+      }
     >
       <div
-        className={isOpen ? " bg-white/10  pt-10 h-full rounded-tr-xl  " : "hidden  "}
+        id="navbar"
+        className={isOpen ? "h-full rounded-tr-xl   bg-zinc-900" : "hidden h-0 w-0 "}
       >
         <nav
           id="navbar-nav"
           onClick={toggle}
-          className={isOpen ? "sticky top-16 max-h-fit flex flex-col divide-solid divide-white/10 divide-y mt-4 " :"hidden" }
+          className={
+            isOpen
+              ? "sticky top-16 flex flex-col divide-solid divide-white/10 divide-y "
+              : "hidden"
+          }
         >
           <CustomLink to="/">Home</CustomLink>
           <CustomLink to="/about">About</CustomLink>
@@ -34,13 +42,13 @@ function NavBar() {
       </div>
       <button
         className={
-          isOpen 
-            ? "hidden"
-            : "sticky top-3 rounded-full text-5xl bg-white overflow-hidden  hover:invert active:bg-zinc-100 material-symbols-outlined duration-300"
+          isOpen
+            ? "hidden w-0 h-0"
+            : "material-symbols-outlined p-2 rounded-full bg-white overflow-hidden hover:invert active:bg-zinc-100  duration-300"
         }
         onClick={toggle}
       >
-        {isOpen ? "arrow_left" : "arrow_right"}
+        arrow_right
       </button>
     </div>
   );

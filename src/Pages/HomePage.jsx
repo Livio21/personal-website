@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { useState, useRef } from "react";
 
-import * as THREE from "three";
-function HomePage(constraintsRef) {
+function HomePage() {
   const [clickCount, setClickCount] = useState(0);
   const [randomEmoji, setRandomEmoji] = useState("hmm");
   const [isHovered, setIsHovered] = useState(false);
@@ -71,6 +69,7 @@ function HomePage(constraintsRef) {
   const handleHelloClick = () => {
     setClickCount(clickCount + 1);
   };
+  const constraintsRef = useRef(null);
 
   return (
     <motion.div
@@ -80,10 +79,11 @@ function HomePage(constraintsRef) {
       exit={{
         opacity: 1,
       }}
-      className="flex w-full and h-full"
+      className="flex w-full "
+      ref={constraintsRef}
     >
       <div className="flex-col">
-        <header className="flex gap-5 justify-between w-max h-max">
+        <div className="flex gap-5 justify-between w-max h-max">
           <motion.div
             animate={{
               scale: isHovered ? 1.1 : 1,
@@ -149,7 +149,7 @@ function HomePage(constraintsRef) {
               👋
             </motion.div>
           </h2>
-        </header>
+        </div>
         <div className="flex flex-col gap-4 mt-10 p-5">
           <h1 className="dark:text-white text-3xl font-semibold">
             Placeholder text
