@@ -5,31 +5,26 @@ import ContactPage from "./Pages/ContactPage";
 import PortofolioPage from "./Pages/PortofolioPage";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
-import { useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
   const location = useLocation();
-  const constraintsRef = useRef(null);
 
   return (
     <>
       <NavBar />
-      <div className="py-8" id="canvas" ref={constraintsRef}>
+      <div className="p-4 min-h-screen">
         <AnimatePresence initial={false} mode="wait">
           <Routes location={location} key={location.pathname}>
-            <Route
-              index
-              element={<HomePage constraintsRef={constraintsRef} />}
-            />
+            <Route index element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/works" element={<PortofolioPage />} />
           </Routes>
         </AnimatePresence>
-      </div>
-      <Footer />
+    </div>
+    <Footer />
     </>
   );
 }

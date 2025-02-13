@@ -113,13 +113,13 @@ function PortofolioPage() {
           onClick={prevCard}
           className="border-solid border-[1px] border-white/20 text-white px-4 py-2 rounded-md hover:bg-white/10 bg-black"
         >
-          <span class="material-symbols-outlined">arrow_drop_up</span>
+          <span className="material-symbols-outlined">arrow_drop_up</span>
         </button>
         <button
           onClick={nextCard}
           className="border-solid border-[1px] border-white/20 text-white px-4 py-2 rounded-md hover:bg-white/10 bg-black"
         >
-          <span class=" material-symbols-outlined">arrow_drop_down</span>
+          <span className=" material-symbols-outlined">arrow_drop_down</span>
         </button>
       </div>
     </>

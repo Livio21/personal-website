@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
-function HomePage(constraintsRef) {
+function HomePage() {
   const [clickCount, setClickCount] = useState(0);
   const [randomEmoji, setRandomEmoji] = useState("hmm");
   const [isHovered, setIsHovered] = useState(false);
@@ -69,6 +69,7 @@ function HomePage(constraintsRef) {
   const handleHelloClick = () => {
     setClickCount(clickCount + 1);
   };
+  const constraintsRef = useRef(null);
 
   return (
     <motion.div
@@ -78,7 +79,8 @@ function HomePage(constraintsRef) {
       exit={{
         opacity: 1,
       }}
-      className="flex w-full and h-full"
+      className="flex w-full "
+      ref={constraintsRef}
     >
       <div className="flex-col">
         <div className="flex gap-5 justify-between w-max h-max">
