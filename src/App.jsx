@@ -38,52 +38,51 @@ function App() {
   const [direction, setDirection] = useState("forward");
   const constraintsRef = useRef(null);
 
-
   useEffect(() => {
     setDirection(navigationType === "PUSH" ? "forward" : "backward");
   }, [navigationType]);
 
   return (
     <>
-        <NavBar />
-        <div className="py-8" id="canvas" ref={constraintsRef}>
-          <AnimatePresence initial={false} mode="wait">
-            <Routes location={location} key={location.pathname}>
-              <Route
-                index
-                element={
-                  <AnimatedPage direction={direction}>
-                    <HomePage constraintsRef={constraintsRef} />
-                  </AnimatedPage>
-                }
-              />
-              <Route
-                path="/about"
-                element={
-                  <AnimatedPage direction={direction}>
-                    <AboutPage />
-                  </AnimatedPage>
-                }
-              />
-              <Route
-                path="/contact"
-                element={
-                  <AnimatedPage direction={direction}>
-                    <ContactPage />
-                  </AnimatedPage>
-                }
-              />
-              <Route
-                path="/works"
-                element={
-                  <AnimatedPage direction={direction}>
-                    <PortofolioPage />
-                  </AnimatedPage>
-                }
-              />
-            </Routes>
-          </AnimatePresence>
-        </div>
+      <NavBar />
+      <div className="py-8" id="canvas" ref={constraintsRef}>
+        <AnimatePresence initial={false} mode="wait">
+          <Routes location={location} key={location.pathname}>
+            <Route
+              index
+              element={
+                <AnimatedPage direction={direction}>
+                  <HomePage constraintsRef={constraintsRef} />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path="/about"
+              element={
+                <AnimatedPage direction={direction}>
+                  <AboutPage />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <AnimatedPage direction={direction}>
+                  <ContactPage />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path="/works"
+              element={
+                <AnimatedPage direction={direction}>
+                  <PortofolioPage />
+                </AnimatedPage>
+              }
+            />
+          </Routes>
+        </AnimatePresence>
+      </div>
       <Footer />
     </>
   );
